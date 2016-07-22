@@ -7,7 +7,7 @@ from rate_check import rate_check
 
 USER_KEY = os.getenv('USER_KEY')
 ROOM_ID = os.getenv('ROOM_ID')
-IMITATIONBOT_KEY = os.getenv('IMITATIONBOT_KEY')
+IMITATIONBOT_KEY = os.getenv('IMITATIONBOT_KEY', USER_KEY)
 
 hipchat_url = 'https://api.hipchat.com/v2/'
 
@@ -44,3 +44,5 @@ def send_notification(msg, sent_from):
     headers = r.headers
     rate_check(headers)
     logger.debug('Posted Message')
+    
+send_notification('yo yo', 'me')
