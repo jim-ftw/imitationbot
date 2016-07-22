@@ -107,7 +107,8 @@ def update_trainer():
 			messages = ''
 			entry = posts.find_one({"_id": user_id})
 			if entry:
-				messages = messages + str(entry['text'])
+				messages = entry['text']
+				messages = messages.encode('utf-8').strip()
 			message_file.seek(0)
 			for row in messagereader:
 				if row['user_id'] == str(user_id):
