@@ -21,14 +21,14 @@ class POSifiedText(markovify.Text):
         sentence = " ".join(word.split("::")[0] for word in words)
         return sentence
 
-def get_user_id(mention_name):
-    pass
-
 def gen_markov(user_id):
     client = MongoClient(MONGODB_URI)
     db = client.get_default_database()
     posts = db.posts
     entry = posts.find_one({"_id": user_id})
-    corpus = entry['text']
-    text_model = markovify.Text(corpus)
-    return text_model.make_sentence()
+    if entry:
+        corpus = entry['text']
+        text_model = markovify.Text(corpus)
+        return text_model.make_sentence()
+    else:
+        logger.info('No corpus for user' + str(user_id))

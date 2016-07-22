@@ -13,15 +13,7 @@ from pprint import pprint
 import json
 
 #Setup Logger
-logger = logging.getLogger()
-handler = logging.StreamHandler(sys.stdout)
-formatter = logging.Formatter(
-        '%(levelname)-8s %(message)s')
-handler.setFormatter(formatter)
-logger.addHandler(handler)
-logger.setLevel(logging.DEBUG)
-logging.getLogger("requests").setLevel(logging.WARNING)
-logging.getLogger("urllib3").setLevel(logging.WARNING)
+logger = logging.getLogger(__name__)
 
 #Set Environment Variables
 ROOM_ID = os.getenv('ROOM_ID')

@@ -1,5 +1,4 @@
 import re 
-import bs4
 import json
 from datetime import datetime
 from dateutil import parser
@@ -12,6 +11,7 @@ class HipChatUser(object):
             version = None, xmpp_jid = None):
         self.id = id
         self.name = name
+        self.mention_name = mention_name
 
 class HipChatFromUser(object):
     def __init__(self, from_user):
