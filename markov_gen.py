@@ -25,7 +25,7 @@ def gen_markov(user_id):
     client = MongoClient(MONGODB_URI)
     db = client.get_default_database()
     posts = db.posts
-    entry = posts.find_one({"_id": user_id})
+    entry = posts.find_one({"_id": str(user_id)})
     if entry:
         corpus = entry['text']
         text_model = markovify.Text(corpus)
