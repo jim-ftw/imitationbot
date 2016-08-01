@@ -21,8 +21,7 @@ class HipChatFromUser(object):
 class HipChatMessage(object):
     def __init__(self, jsonDict):
         self.user_from = HipChatFromUser(jsonDict["from"])
-        self.message = re.sub('/trebek ', '', jsonDict["message"])
-
+        
 class HipChatRoom(object):
     def __init__(self, roomDict):
         self.room_id = roomDict["id"]

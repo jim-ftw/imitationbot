@@ -34,6 +34,10 @@ A HipChat bot that will imitate anyone! Powered by [markovify](https://github.co
 * Anytime you want to update the corpus, just send `/imitate corpus`
 * This code might not work... I've not written tests, and I've only run it on one HipChat server so far.
 
+### Credit where credit is due:
+* Inspiration on handling messages came from [Trebek Bot](https://github.com/yanigisawa/hip-trebek)
+* The original implementation comes from the glorious WebDevs 2.0.
+
 MIT License
 
 Copyright (c) 2016 James Judd
